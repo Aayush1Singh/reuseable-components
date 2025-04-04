@@ -3,7 +3,7 @@
 
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import React, { useEffect, useState } from "react";
-
+import ReactMarkdown from "react-markdown";
 export async function generateRespones(poem) {
   const genAI = new GoogleGenerativeAI(
     "AIzaSyA0nnq1TqDs4_A4LhxCArnGntKu2Juz4P0",
@@ -61,7 +61,7 @@ const PoemExplanationPopup = ({ data }) => {
   }
 
   return (
-    <div className="relative">
+    <div className="fit-content max-width relative">
       {/* Trigger Button */}
       <button
         onClick={handlePopup}
@@ -82,9 +82,30 @@ const PoemExplanationPopup = ({ data }) => {
               🔄 व्याख्या लोड हो रही है...
             </p>
           ) : (
-            <p className="text-sm whitespace-pre-wrap text-gray-800">
+            <ReactMarkdown
+              components={{
+                p: ({ node, ...props }) => (
+                  <p
+                    className="text-sm leading-relaxed text-gray-800"
+                    {...props}
+                  />
+                ),
+                strong: ({ node, ...props }) => (
+                  <strong
+                    className="font-semibold text-orange-700"
+                    {...props}
+                  />
+                ),
+                em: ({ node, ...props }) => (
+                  <em className="text-gray-600 italic" {...props} />
+                ),
+                li: ({ node, ...props }) => (
+                  <li className="ml-4 list-disc" {...props} />
+                ),
+              }}
+            >
               {explanation}
-            </p>
+            </ReactMarkdown>
           )}
 
           <button
