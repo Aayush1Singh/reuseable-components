@@ -67,7 +67,7 @@ const PoemExplanationPopup = ({ data }) => {
         onClick={handlePopup}
         className="rounded-lg bg-orange-500 px-4 py-2 text-white shadow transition-all duration-500 hover:bg-red-500"
       >
-        Show Explanation
+        Explain Using AI
       </button>
 
       {/* Popup Box */}
