@@ -8,6 +8,7 @@ const Login = () => {
   }
   return (
     <div className="login-background absolute flex h-full w-full justify-between">
+      <div className="login-background-bottom absolute"></div>
       <p className="site-name">काव्य पथ</p>
       <p className="background-text">शब्दों का संगम, भावनाओं का मंच।</p>
       <form className="login-box" onSubmit={handleSubmit(onSubmit)}>

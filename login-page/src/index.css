@@ -9,6 +9,15 @@
     white 5%
   );
 }
+.login-background-bottom {
+  background: radial-gradient(
+    circle at bottom right,
+    green 20%,
+    #ffcc00 30%,
+    white 5%
+  );
+}
+
 .site-name {
   width: fit-content;
   backdrop-filter: blur(20px);
